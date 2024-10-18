@@ -21,10 +21,21 @@ struct ShowSuggestedFeeds {
 
     func showSuggestedFeeds() {
 
+        let doNotShowFeedsNamed = [
+            "Media",
+            "The 'Gram",
+            "Popular With Friends",
+            "Mutuals",
+            "Mentions",
+            "Followers",
+            "My Bangers",
+            "OnlyPosts"
+        ]
+
         Task {
             let feeds = try await feedsFetcher.fetchFeeds()
             let populatedFeeds = feeds.filter { feed in
-                !["Popular With Friends", "Mutuals"].contains(feed.displayName)
+                !doNotShowFeedsNamed.contains(feed.displayName)
             }
             feedsDisplayer.show(feeds: populatedFeeds)
         }

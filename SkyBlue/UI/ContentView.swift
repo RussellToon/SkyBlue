@@ -9,14 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
+    //@Environment(\.modelContext) private var modelContext
     private var feedsFetcher: FeedsFetching
     private var feedsListViewModel: FeedsListViewModel
     private var showSuggestedFeedsUseCase: ShowSuggestedFeeds
 
     init(
         feedsFetcher: FeedsFetching = FeedsFetcher(feedsFetchingAPI: SuggestedFeedsAPI()),
-        //showSuggestedFeedsUseCase: ShowSuggestedFeeds,
         feedsListViewModel: FeedsListViewModel = FeedsListViewModel()
     ) {
         self.feedsListViewModel = feedsListViewModel
@@ -36,17 +35,8 @@ struct ContentView: View {
 #endif
             .toolbar {
 #if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
+                // TODO: Toolbar content if needed
 #endif
-
-// TODO:
-//                ToolbarItem {
-//                    Button(action: search) {
-//                        Label("Search", systemImage: "magnifier")
-//                    }
-//                }
             }
         } detail: {
             Text("Select an item")
@@ -57,5 +47,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        //.modelContainer(for: Item.self, inMemory: true)
+        //.modelContainer(for: Bookmark.self, inMemory: true)
 }

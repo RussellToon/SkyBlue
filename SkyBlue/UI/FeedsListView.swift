@@ -22,7 +22,6 @@ struct FeedsListView: View {
             }
         }
         .navigationTitle("BlueSky Feeds")
-
     }
 
 
@@ -35,12 +34,12 @@ struct FeedsListView: View {
                         .onAppear {
                             showFeedPostsUseCase.showFeedPosts(feedURI: feed.uri)
                         }
+                        .id(feed.id)
 
                 } label: {
 
                     VStack {
                         HStack {
-                            //Spacer()
                             Text("\(feed.displayName)")
                                 .lineLimit(1)
                                 .font(.callout)
@@ -59,7 +58,9 @@ struct FeedsListView: View {
             }
         }
     }
+
 }
+
 
 #Preview {
     // TODO: Populate model
