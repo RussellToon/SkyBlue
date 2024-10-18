@@ -22,15 +22,6 @@ final class SkyBlueTests: XCTestCase {
     private let feedQueryURL = "https://public.api.bsky.app/xrpc/app.bsky.feed.getFeed?feed=at://did:plc:jfhpnnst6flqway4eaeqzj2a/app.bsky.feed.generator/for-science"
 
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-
     func testSuggestedFeedsAPIFetchCallsAPIPerform() async throws {
         var suggestedFeedsAPI = SuggestedFeedsAPI()
         let mockFeedsResponse = FeedsDTO.FeedsResponse(feeds: [])

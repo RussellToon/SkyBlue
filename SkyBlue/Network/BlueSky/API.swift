@@ -12,7 +12,6 @@ import OSLog
 
 protocol API {
     func perform<T: Decodable>(path: String, query: [URLQueryItem]) async throws -> T
-    //func perform<T: Decodable>(path: String) async throws -> T
 }
 
 extension API {

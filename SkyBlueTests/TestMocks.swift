@@ -16,9 +16,8 @@ class MockAPI: API {
     var performReturnWith: Decodable
     var performCalledWithArgs: (path: String, query: [URLQueryItem])?
 
-    init(performReturnWith: Decodable /*, performCalledWithArgs: (path: String, query: [URLQueryItem])? = nil */) {
+    init(performReturnWith: Decodable) {
         self.performReturnWith = performReturnWith
-        //self.performCalledWithArgs = performCalledWithArgs
     }
 
     func perform<T: Decodable>(path: String, query: [URLQueryItem]) async throws -> T {

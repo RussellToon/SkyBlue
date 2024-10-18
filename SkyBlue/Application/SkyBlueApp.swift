@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct SkyBlueApp: App {
+
+    /* TODO:
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -22,12 +24,13 @@ struct SkyBlueApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+     */
 
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        //.modelContainer(sharedModelContainer)
     }
 }

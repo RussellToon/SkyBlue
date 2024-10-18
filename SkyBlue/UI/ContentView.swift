@@ -10,8 +10,6 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
     private var feedsFetcher: FeedsFetching
     private var feedsListViewModel: FeedsListViewModel
     private var showSuggestedFeedsUseCase: ShowSuggestedFeeds
@@ -42,35 +40,22 @@ struct ContentView: View {
                     EditButton()
                 }
 #endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+
+// TODO:
+//                ToolbarItem {
+//                    Button(action: search) {
+//                        Label("Search", systemImage: "magnifier")
+//                    }
+//                }
             }
         } detail: {
             Text("Select an item")
         }
     }
 
-    // TODO: Remove:
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
-    }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        //.modelContainer(for: Item.self, inMemory: true)
 }
